@@ -31,6 +31,9 @@ namespace RPG_Battler.Character
             if (parameter = true)
             {
                 Console.WriteLine();
+            } else
+            {
+                Console.WriteLine();
             }
         }
 
