@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Quic;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,8 +28,9 @@ namespace RPG_Battler.Character
         }
         public void DisplayStats(bool parameter)
         {
-            if (parameter) = true {
-                Console.WriteLine()
+            if (parameter = true)
+            {
+                Console.WriteLine();
             }
         }
 
