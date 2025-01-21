@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -21,11 +22,38 @@ namespace RPG_Battler.Character
         public List<Equipment> Equipment { get; set; }
 
         public Hero()
-        {       
+        {
+            Hero Newhero = new Hero();
+        }
+        public void DisplayStats(bool parameter)
+        {
+            if (parameter) = true {
+                Console.WriteLine()
+            }
         }
 
         public void LevelUp()
         {
+            switch (CombatClass)
+            {
+                case CombatClass.Wizard:
+                    Health = new Random().Next(1,15);
+                    Power = new Random().Next(3,5);
+                    Luck = new Random().Next(1,3);
+                    break;
+                case CombatClass.Warrior:
+                    Health = new Random().Next(10,20);
+                    Power = new Random().Next(1,3);   
+                    Luck = (new Random()).Next(1,3);
+                    break;
+                case CombatClass.Rogue:
+                    Health = new Random().Next(1,15);
+                    Power = new Random().Next(1,3);
+                    Luck = new Random().Next(3,5);
+                    break;
+                case CombatClass.None:
+                    break;
+            }
         }
 
         public void CalculateTotals()
