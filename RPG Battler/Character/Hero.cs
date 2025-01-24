@@ -24,16 +24,28 @@ namespace RPG_Battler.Character
 
         public Hero()
         {
-            Hero Newhero = new Hero();
+            Name = "Unknown";
+            Level = 0;
+            Health = 1;
+            Power = 1;
+            Luck = 1;
+            Mana = 1;
+            ExperienceRemaining = 1;
+            CombatClass = CombatClass.None;
+            Items = new List<Item>();
+            Skills = new List<Skill>();
+            Spells = new List<Spell>();
+            Equipment = new List<Equipment>();
         }
-        public void DisplayStats(bool parameter)
+        public void DisplayStats(bool parameter = true)
         {
-            if (parameter = true)
+            if (parameter)
             {
-                Console.WriteLine();
-            } else
+                Console.WriteLine(Name, Health, Power, Luck, Mana, ExperienceRemaining);
+            }
+            else
             {
-                Console.WriteLine();
+                Console.WriteLine(Name, Health, Power, Luck, Mana, ExperienceRemaining, CombatClass, Items, Skills, Spells, Equipment);
             }
         }
 
@@ -61,8 +73,27 @@ namespace RPG_Battler.Character
             }
         }
 
+        public void PowerLevel(int power)
+        {
+            if (power > Level)
+            {
+                LevelUp();
+                Level = power;
+            }//it should take an int as a parameter and call the level up method based on the int.
+        }
+
+        public void AwakenHero()
+        {
+            Random random = new Random();
+            Array values = Enum.GetValues(typeof(CombatClass));
+            CombatClass = (CombatClass)values.GetValue(random.Next(values.Length));
+            PowerLevel(random.Next(8, 13));
+            DisplayStats();
+            //Assign the hero a random CombatClass. Using PowerLevel, randomly level up the hero to a level between 8 and 12. You will want to implement DisplayStats() to view the hero information.
+        }
         public void CalculateTotals()
         {
+            //What is this for? Am I missing a step with this?
         }
     }
 }
